@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search Tree</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previous Trees</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>Previous Trees</h1>
+    <div id="results"></div>
+    <script>
+        fetch('/previous-trees')
+            .then(response => response.json())
+            .then(trees => {
+                const resultsDiv = document.getElementById('results');
+                resultsDiv.innerHTML = trees.map(tree => `
+                    <div class="result-box">
+                        <h3>Input: ${tree.inputNumbers}</h3>
+                        <pre>${tree.treeStructure}</pre>
+                    </div>`).join('');
+            });
+    </script>
+</body>
+</html>
